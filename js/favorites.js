@@ -94,7 +94,6 @@ class FavoritesView extends Favorites {
                     nameB = b.name.toUpperCase()
                 } else {
                     nameB = b.login
-                    console.log(nameB)
                 }
     
                 if(nameA < nameB) {
