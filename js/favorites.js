@@ -83,8 +83,19 @@ class FavoritesView extends Favorites {
 
         sortButton.onclick = () => {
             this.entries.sort((a, b) => {
-                const nameA = a.name.toUpperCase()
-                const nameB = b.name.toUpperCase()
+                let nameA = ''
+                let nameB = ''
+
+                if(a.name !== null) {
+                    nameA = a.name.toUpperCase()
+                } else {
+                    nameA = a.login
+                } if(b.name !== null) {
+                    nameB = b.name.toUpperCase()
+                } else {
+                    nameB = b.login
+                    console.log(nameB)
+                }
     
                 if(nameA < nameB) {
                     return -1
