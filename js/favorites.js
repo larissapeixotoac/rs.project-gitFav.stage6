@@ -89,11 +89,11 @@ class FavoritesView extends Favorites {
                 if(a.name !== null) {
                     nameA = a.name.toUpperCase()
                 } else {
-                    nameA = a.login
+                    nameA = a.login.toUpperCase()
                 } if(b.name !== null) {
                     nameB = b.name.toUpperCase()
                 } else {
-                    nameB = b.login
+                    nameB = b.login.toUpperCase()
                 }
     
                 if(nameA < nameB) {
