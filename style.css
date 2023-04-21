@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --bg-primary: hsla(0, 0%, 0%, 1);
+    --bg-primaryTable: hsla(192, 63%, 3%, 1);
+    --bg-thead: #092D38;
+    --bg-input: hsla(191, 65%, 7%, 1);
+    --bg-inputButton: hsla(195, 91%, 25%, 1);
+    --bg-tr: rgba(6, 22, 27, 0.5);
+    --bg-tr-even: hsla(192, 65%, 7%, 1);
+
+    --tc-input: #7C7C8A;
+    --tc-tableEmpty: hsla(189, 4%, 32%, 1);
+    --tc-table: hsla(240, 9%, 89%, 1);
+
+    --ff-primary: 'Roboto', sans-serif;
+    --ff-emptyTable: 'Roboto Mono', monospace;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--ff-primary);
+    font-weight: bold;
+
+    background-color: var(--bg-primary);
+    
+    width: min(112rem, 90%);
+    margin: 11.5rem auto 11.6rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(5rem, 5rem + 5vw, 28.6rem);
+    margin-bottom: 4.7rem;  
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* rentanculo com os seguintes lados */
+    white-space: nowrap;
+    border-width: 0;
+}
+
+input {
+    width: clamp(30rem, 30rem + 7vw, 46.2rem);
+    height: 4.8rem;
+
+    background-color: var(--bg-input);
+    border: none;
+    border-radius: .5rem;
+
+    padding: 1.6rem;
+
+    color: var(--tc-input);
+    font-family: var(--ff-primary);
+    font-weight: normal;
+    line-height: 100%;
+}
+
+.search button {
+    width: 17rem;
+    height: 4.8rem;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--bg-inputButton);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+
+    font-family: var(--ff-primary);
+    font-weight: bold;
+    color: white;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.search button:hover, button:hover svg path {
+    background-color: white;
+    color: #065E7C;
+    fill: #065E7C;
+
+    transition: .3s;
+}
+
+.sort {
+    text-align: end;
+    padding: 1rem 0;
+}
+
+.sort-button {
+    width: 15rem;
+    height: 3rem;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--bg-inputButton);
+
+    font-family: var(--ff-primary);
+    font-weight: bold;
+    color: white;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.sort-button:hover {
+    background-color: white;
+    color: #065E7C;
+
+    transition: .3s;
+}
+
+.table-border {
+    border: .1rem solid #4A808C;
+    border-radius: 1.2rem;
+
+    z-index: 5;
+
+}
+
+table {
+    border-collapse: collapse;                  
+    width: 100%;
+
+}
+
+table * {
+    font-size: 2rem;
+    color: var(--tc-table);
+    
+}
+
+thead {
+    background-color: var(--bg-thead);    
+}
+
+tr th {  
+    padding: 1.6rem 4rem;
+    width: 21.8rem;
+    text-align: left;
+    line-height: 160%;
+}
+
+tr th:nth-child(1) {    
+    border-radius: 1.2rem 0 0 0;
+
+    width: 50rem;
+}
+
+tr th:nth-child(4) {
+    border-radius: 0 1.2rem 0 0;
+}
+
+/* Table with favorites: */
+
+tbody tr.fav {
+    background: var(--bg-tr); 
+    border-top: .1rem solid #4A808C;
+}
+
+tbody tr:last-child.fav td:nth-child(1) {
+    border-radius: 0 0 0 1.5rem;
+}
+
+tbody tr:last-child.fav td:last-child {
+    border-radius: 0 0 1.5rem 0;
+}
+
+tbody tr:nth-child(even).fav td {
+    background-color: var(--bg-tr-even);    
+}
+
+td {
+    padding: 2.4rem 4rem;   
+}
+
+
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.user img {
+    border-radius: 50%;
+    width: 5.6rem;
+    height: 5.6rem;
+
+    object-fit: cover;
+}
+
+.user a {
+    text-decoration: none;
+}
+
+a span {
+    font-weight: normal;
+}
+
+td button {
+    font-family: var(--ff-primary);
+    color: #F75A68;
+    border: none;
+    background-color:transparent;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 160%;
+
+    cursor: pointer;
+}
+
+
+/* Empty Table: */
+
+.empty-table {
+    background-color: var(--bg-primaryTable);
+    border-radius: 0 0 1.5rem 1.5rem;
+
+    height:60vh;
+    padding: 0 26rem ;
+    position: relative;
+}
+
+.empty-table svg {
+    margin-right: 6rem;
+}
+
+.empty-table span {
+    position: absolute;
+    margin-top: 6rem;
+
+    font-size: 4rem;
+    line-height: 2.5rem;
+    color: var(--tc-tableEmpty);
+}
